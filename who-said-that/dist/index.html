@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Who Said That? — The identity board game</title>
+<meta name="description" content="60 ready-to-play questions for Me, Sarah, Jeter, and Eric. Roll the dice and match each answer to the person.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23d9fb67'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-size='27' font-family='Arial' font-weight='900' fill='%23191923'%3E?%3C/text%3E%3C/svg%3E">
+<style>
+/* Self-contained: no network or external assets required. */
+:root{--bg:#171821;--panel:#22232e;--line:#3b3c49;--ink:#f7f6f1;--muted:#b4b4c1;--lime:#dbfa79;--purple:#baa3f7;--pink:#ffa1b6;--cyan:#7cd8d1;--orange:#ffbb7e;--board:#e6e0cf;--dark:#242331;--radius:22px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',Arial,sans-serif;font-size:16px;line-height:1.5}button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}button,input,textarea,select{border-radius:11px}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--lime);outline-offset:4px}button{border:0}a{color:inherit}.shell{max-width:1440px;margin:auto;padding:26px 42px 20px}header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-bottom:24px;border-bottom:1px solid var(--line)}.brand{font-family:'Space Grotesk',Arial,sans-serif;font-size:20px;font-weight:700;letter-spacing:-.6px;display:flex;align-items:center;gap:11px}.brand-mark{background:var(--lime);color:var(--dark);border-radius:10px;font-size:27px;width:36px;height:36px;text-align:center;line-height:36px;transform:rotate(-6deg)}.header-actions{display:flex;gap:10px}.quiet-button{background:transparent;color:var(--ink);border:1px solid var(--line);padding:9px 16px;font-size:14px;font-weight:600}.quiet-button:hover{background:#30313e}.table-heading{display:flex;justify-content:space-between;align-items:center;padding:27px 0 22px;gap:12px}.eyebrow{text-transform:uppercase;letter-spacing:2.2px;font-weight:700;font-size:12px;color:var(--muted);margin:0 0 8px}.table-heading h1{font-family:'Space Grotesk',Arial,sans-serif;font-size:25px;line-height:1.25;letter-spacing:-.7px;margin:0}.pill{padding:7px 12px;border:1px solid var(--line);border-radius:30px;font-size:13px;color:var(--muted);white-space:nowrap}.play-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(330px,.8fr);gap:30px;align-items:start}.board-frame{position:relative;border-radius:25px;background:var(--board);padding:12px;border-bottom:7px solid #979283;box-shadow:0 14px 32px #0002}.board{aspect-ratio:1;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));grid-template-rows:repeat(7,minmax(0,1fr));gap:5px;position:relative}.tile{position:relative;border-radius:10px;background:var(--purple);color:var(--dark);display:flex;align-items:center;justify-content:center;border:1px solid #2222;min-width:0;overflow:hidden}.tile:nth-child(4n+2){background:var(--pink)}.tile:nth-child(4n+3){background:var(--cyan)}.tile:nth-child(4n+4){background:var(--orange)}.tile.start{background:var(--lime)}.tile-number{position:absolute;top:3px;left:7px;font-size:12px;font-weight:700;opacity:.65}.tile-symbol{font-family:'Space Grotesk',Arial,sans-serif;font-size:27px;font-weight:500;opacity:.55}.tile.start .tile-symbol{font-size:12px;font-weight:700;letter-spacing:1px;opacity:1}.tile.occupied{box-shadow:inset 0 0 0 2px var(--dark)}.tile.active-space{box-shadow:inset 0 0 0 3px var(--dark);filter:brightness(1.06)}.tokens{position:absolute;inset:16px 4px 3px;display:flex;align-items:center;justify-content:center;gap:2px;flex-wrap:wrap}.token{width:24px;height:24px;flex:none;display:grid;place-items:center;border:2px solid #fff;border-radius:50%;background:var(--token);color:var(--dark);font-size:12px;font-weight:800;box-shadow:0 2px 2px #0004}.board-center{grid-column:2/7;grid-row:2/7;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative;color:var(--dark);padding:5%;text-align:center}.center-kicker{font-size:12px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;margin-bottom:14px}.game-title{font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(40px,6.2vw,84px);font-weight:700;line-height:.91;letter-spacing:-5px;margin:0;transform:rotate(-5deg)}.game-title span{display:block}.game-title span:nth-child(2){color:#6c4aa4}.center-description{font-size:14px;line-height:1.5;max-width:220px;margin:24px 0 14px}.center-badge{font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;border:1px solid #29272f50;border-radius:24px;padding:7px 13px}.board-caption{display:flex;justify-content:space-between;gap:15px;margin:17px 2px;color:var(--muted);font-size:13px}.legend{display:flex;gap:6px;align-items:center}.legend::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--lime)}.panel{border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);padding:25px}.panel h2{font-family:'Space Grotesk',Arial,sans-serif;font-size:27px;letter-spacing:-.8px;line-height:1.2;margin:0 0 10px}.muted{color:var(--muted)}.panel p{margin:0 0 20px}.panel .intro{font-size:14px}.field-label{display:block;font-size:14px;font-weight:600;margin-bottom:9px}.name-list{display:grid;gap:8px;margin-bottom:12px}.name-row{display:flex;gap:9px;align-items:center}.player-dot{flex:none;width:31px;height:31px;border-radius:50%;background:var(--token);color:var(--dark);display:grid;place-items:center;font-size:14px;font-weight:700}.name-row input{min-width:0;flex:1}input,textarea,select{border:1px solid #515260;color:var(--ink);background:#191a24;padding:11px 12px;width:100%}input::placeholder,textarea::placeholder{color:#9495a4}input[aria-invalid=true],textarea[aria-invalid=true]{border-color:var(--pink)}.remove{border:0;color:var(--muted);background:transparent;font-size:22px;padding:2px 7px;border-radius:6px}.text-button{background:transparent;color:var(--lime);font-size:14px;font-weight:600;padding:5px 0}.settings{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:21px 0}.stepper{display:flex;border:1px solid #515260;border-radius:11px;height:43px;overflow:hidden;align-items:center}.stepper button{background:transparent;color:var(--ink);width:40px;height:100%;font-size:22px;border-radius:0}.stepper button:hover{background:#3b3c49}.stepper output{flex:1;text-align:center;font-weight:700}.primary{width:100%;padding:14px 20px;background:var(--lime);color:var(--dark);font-weight:700;border-radius:12px;transition:transform .15s,background .15s}.primary:hover{background:#e7ff9c;transform:translateY(-1px)}.secondary{width:100%;padding:12px 16px;background:#343541;color:var(--ink);font-weight:600;border:1px solid #515260}.small-note{font-size:12px;color:var(--muted);text-align:center;margin:13px 0 0!important}.rule-strip{margin-top:17px;display:grid;grid-template-columns:1fr 1fr;gap:10px}.rule-item{border:1px solid var(--line);padding:13px;border-radius:13px;font-size:14px}.rule-item strong{display:block;font-size:14px;font-weight:600}.rule-item span{font-size:12px;color:var(--muted)}.rule-item.good strong{color:var(--lime)}.rule-item.bad strong{color:var(--pink)}footer{display:flex;justify-content:space-between;border-top:1px solid var(--line);margin-top:15px;padding-top:16px;color:var(--muted);font-size:12px;gap:16px}.error{font-size:14px;color:#ffb5c5;margin:10px 0!important}.hidden{display:none!important}.progress-dots{display:flex;gap:7px;margin:20px 0}.progress-dot{height:5px;border-radius:9px;flex:1;background:#434451}.progress-dot.done{background:var(--lime)}.private-mark{width:66px;height:66px;border-radius:20px;background:var(--purple);color:var(--dark);display:grid;place-items:center;font-size:30px;font-weight:700;margin:5px 0 25px}.draft-field{margin:18px 0}textarea{min-height:88px;resize:vertical}.suggestion{border-left:2px solid var(--purple);padding-left:12px;font-size:13px!important;color:var(--muted)}.turn-label{display:flex;align-items:center;gap:12px;margin-bottom:20px}.turn-label .player-dot{width:44px;height:44px;font-size:19px}.turn-label h2{font-size:24px;margin:0}.turn-label .eyebrow{font-size:11px;letter-spacing:1.7px;margin:0 0 3px}.dice-area{display:flex;align-items:center;justify-content:center;gap:17px;margin:25px 0}.die{width:70px;height:70px;border-radius:17px;background:#faf8ef;box-shadow:0 5px 0 #a5a39b;color:var(--dark);display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);padding:14px;gap:5px;transform:rotate(-8deg)}.die:nth-child(2){transform:rotate(9deg)}.pip{background:var(--dark);border-radius:50%;width:100%;height:100%}.die.rolling{animation:roll .15s infinite alternate}@keyframes roll{to{transform:rotate(15deg) translateY(-7px)}}.card-label{font-size:12px;text-transform:uppercase;letter-spacing:1.8px;font-weight:700;color:var(--purple);margin-bottom:15px}.question{font-family:'Space Grotesk',Arial,sans-serif;font-size:22px;line-height:1.35;letter-spacing:-.5px;overflow-wrap:anywhere}.answer{font-size:19px;line-height:1.4;background:#191a24;border:1px solid var(--line);border-radius:12px;padding:18px;margin:18px 0;overflow-wrap:anywhere}.answer::before{content:'“';color:var(--purple);font-size:30px;display:block;line-height:20px}.guess-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.guess-button{display:flex;align-items:center;gap:9px;padding:11px 10px;text-align:left;color:var(--ink);background:#343541;border:1px solid #515260;min-width:0;font-size:14px}.guess-button:hover{border-color:var(--lime);background:#414437}.guess-button span:last-child{overflow-wrap:anywhere}.guess-button .player-dot{width:25px;height:25px;font-size:12px}.result-banner{font-family:'Space Grotesk',Arial,sans-serif;font-size:32px;line-height:1.15;color:var(--lime);margin-bottom:18px}.result-banner.wrong{color:var(--pink)}.leaderboard{margin-top:18px;border:1px solid var(--line);border-radius:18px;padding:18px}.leaderboard h3{margin:0 0 12px;font-size:12px;text-transform:uppercase;letter-spacing:1.8px;color:var(--muted)}.score-row{display:grid;grid-template-columns:26px minmax(0,1fr) auto;align-items:center;gap:9px;padding:9px 0;border-top:1px solid #3b3c4966;font-size:14px}.score-row:first-of-type{border-top:0}.score-row .player-dot{width:24px;height:24px;font-size:11px}.score-name{overflow-wrap:anywhere}.score-progress{font-size:12px;color:var(--muted)}.score-row.current .score-name{color:var(--lime);font-weight:700}.score-bar{grid-column:2/4;height:3px;background:#42434d;border-radius:4px;overflow:hidden;margin-top:-3px}.score-bar span{display:block;height:100%;background:var(--token)}.winner-medallion{font-size:65px;color:var(--lime);line-height:1;margin:10px 0 20px}.winner-name{overflow-wrap:anywhere}.full-width{grid-column:1/-1}.actions-stack{display:grid;gap:10px;margin-top:20px}.status-line{font-size:13px;color:var(--muted);margin-top:15px;min-height:20px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}dialog{background:var(--panel);color:var(--ink);border:1px solid #606170;border-radius:22px;max-width:510px;width:calc(100% - 32px);padding:28px;max-height:85vh;overflow:auto}dialog::backdrop{background:#090910bb;backdrop-filter:blur(4px)}dialog h2{font-family:'Space Grotesk',Arial,sans-serif;font-size:28px;margin:0 0 18px}dialog ol{padding-left:24px}dialog li{padding-left:5px;margin-bottom:13px}dialog .close{float:right;background:transparent;color:var(--ink);font-size:24px;border-radius:6px}dialog p{color:var(--muted);font-size:14px}.empty-copy{margin:10px 0;font-size:14px;color:var(--muted)}
+@media(min-width:1200px){.shell{padding-top:28px}.play-layout{gap:40px}.panel{padding:28px}.board-frame{padding:14px}.board{gap:6px}}
+@media(max-width:900px){.shell{padding:20px}.play-layout{grid-template-columns:minmax(0,1fr) minmax(310px,.85fr);gap:20px}.panel{padding:21px}.game-title{font-size:56px;letter-spacing:-3px}.center-description{font-size:12px;margin:17px 0 10px}.center-kicker{font-size:10px;letter-spacing:1.8px}.center-badge{font-size:10px}.board-frame{padding:8px;border-radius:18px}.board{gap:3px}.tile{border-radius:6px}.tile-symbol{font-size:22px}.tile-number{font-size:10px;left:4px}.token{width:19px;height:19px;font-size:10px}.board-caption{font-size:12px}}
+@media(max-width:730px){.shell{padding:18px 16px}.play-layout{grid-template-columns:1fr}.board-column{max-width:570px;width:100%;margin:auto}.board-frame{padding:10px}.game-title{font-size:clamp(53px,13vw,82px);letter-spacing:-4px}.center-kicker{font-size:11px}.center-description{font-size:14px}.center-badge{font-size:11px}.panel{padding:23px}.table-heading{padding:22px 0 18px}.table-heading h1{font-size:22px}.pill{font-size:12px}.brand{font-size:18px}.header-actions .quiet-button{padding:8px 11px}.board-caption{margin-bottom:0}.sidebar{margin-top:0}.tile-symbol{font-size:27px}.tile-number{font-size:11px}.token{width:23px;height:23px;font-size:11px}footer{flex-wrap:wrap}.game-running .sidebar{grid-row:1}.game-running .board-column{grid-row:2}.game-running .leaderboard{display:none}}
+@media(max-width:440px){.table-heading{align-items:flex-start;flex-direction:column}.board-caption{flex-wrap:wrap;gap:5px}.center-description{font-size:12px}.center-badge{font-size:10px;padding:6px 8px}.game-title{letter-spacing:-3px}.center-kicker{font-size:10px;letter-spacing:1px}.board{gap:3px}.token{width:18px;height:18px;font-size:10px}.header-actions{gap:5px}.brand{font-size:16px}.quiet-button{font-size:12px!important;padding:7px!important}.shell{padding:14px 12px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header><div class="brand"><span class="brand-mark" aria-hidden="true">?</span>who said that?</div><div class="header-actions"><button class="quiet-button hidden" id="new-game">New game</button><button class="quiet-button" id="rules-button">How to play</button></div></header>
+<div class="table-heading"><div><p class="eyebrow" id="stage-label">The identity game</p><h1 id="stage-title">A little mystery. All about you.</h1></div><span class="pill" id="table-pill">4 players · 60 questions</span></div>
+<main class="play-layout" id="play-layout">
+<section class="board-column" aria-label="Game board"><div class="board-frame"><div class="board" id="board"><div class="board-center"><div class="center-kicker">An identity guessing game</div><div class="game-title" aria-label="Who Said That?"><span>WHO</span><span>SAID</span><span>THAT?</span></div><p class="center-description">Your people. Your interests.<br>Who would say that?</p><span class="center-badge" id="center-badge">15 questions each · ready to play</span></div></div></div><div class="board-caption"><span class="legend">24 spaces. Everyone has a story.</span><span id="lap-caption">You choose the laps.</span></div></section>
+<aside class="sidebar"><section class="panel" id="panel" aria-label="Game controls">
+<p class="eyebrow">Make it your game</p><h2>Gather your people.</h2><p class="intro muted">Your four-person table is ready. Each person has 15 questions inspired by their interests.</p><form id="setup-form" novalidate><div class="name-list" id="name-list"></div><div class="settings"><div><label class="field-label" for="laps">Laps to win</label><div class="stepper"><button type="button" id="lap-less" aria-label="Fewer laps">−</button><output id="laps">2</output><button type="button" id="lap-more" aria-label="More laps">+</button></div></div><div><label class="field-label" for="dice-count">Dice</label><select id="dice-count"><option value="1">1 die</option><option value="2">2 dice</option></select></div></div><p class="error hidden" id="setup-error" role="alert"></p><button type="submit" class="primary">Play with our 60 questions</button><button type="button" class="text-button" id="edit-cards" style="display:block;margin:12px auto 0">Edit our cards</button><p class="small-note">Answers are generated examples based on your interests. Edit any to make it yours.</p></form>
+</section><div class="rule-strip" id="rule-strip"><div class="rule-item good"><strong>Guess it right</strong><span>Keep your new spot.</span></div><div class="rule-item bad"><strong>Guess it wrong</strong><span>Go back 2 spaces.</span></div></div><section class="leaderboard hidden" id="leaderboard" aria-label="Player progress"></section></aside>
+</main>
+<footer><span>Around the board. A little closer together.</span><span>Made for the people at your table.</span></footer>
+</div>
+<div class="sr-only" id="live-status" aria-live="polite" aria-atomic="true"></div>
+<dialog id="rules-dialog"><button class="close" aria-label="Close rules">×</button><p class="eyebrow">The house rules</p><h2>It's all about who.</h2><ol><li><strong>Set the table.</strong> Me, Sarah, Jeter, and Eric are ready. Agree on 1–5 laps and choose one or two dice.</li><li><strong>Meet the deck.</strong> Each person has exactly 15 questions with generated sample answers based on their interests. Play immediately or use Edit our cards to personalize them.</li><li><strong>Roll and move.</strong> Move clockwise by the dice total. Every space draws a question and answer assigned to someone else.</li><li><strong>Guess who would say it.</strong> A correct guess keeps your new position. A wrong guess sends you back two spaces, with no extra question.</li><li><strong>Make it around.</strong> The first player to complete the agreed laps wins after their question is resolved. On the final lap, movement stops at the finish; a wrong guess sends you back two spaces.</li></ol><p>You never receive your own card. Used cards return when no unseen cards remain for the current player. Moving backward across Start reduces your lap progress; you can't move behind the original starting position.</p><p>Everyone can discuss the question, but only the player taking the turn guesses. The generated answers are imaginary examples, not verified personal facts. Personalized cards can use your real answers. Play on one device together; refreshing restores the original deck and starts over.</p><button class="primary" id="rules-done">Got it</button></dialog>
+<dialog id="reset-dialog"><h2>Start a new game?</h2><p>Your progress and any card edits will be cleared. The original 60 cards will be restored.</p><div class="actions-stack"><button class="primary" id="reset-confirm">Start fresh</button><button class="secondary" id="reset-cancel">Keep playing</button></div></dialog>
+<dialog id="editor-dialog"><button class="close" id="editor-close" aria-label="Close card editor">×</button><p class="eyebrow">Make the answers yours</p><h2>Edit our cards</h2><label class="field-label" for="editor-person">Player</label><select id="editor-person"></select><p class="small-note" id="editor-topic"></p><form id="editor-form" novalidate><div class="draft-field"><label class="field-label" for="editor-question" id="editor-number">Question 1 of 15</label><textarea id="editor-question" maxlength="180"></textarea></div><div class="draft-field"><label class="field-label" for="editor-answer">Answer</label><textarea id="editor-answer" maxlength="240"></textarea></div><p class="error hidden" id="editor-error" role="alert"></p><div class="settings"><button class="secondary" type="button" id="editor-prev">Previous</button><button class="secondary" type="button" id="editor-next">Next</button></div><button type="submit" class="primary">Save card & close</button><p class="small-note">Previous and Next save your edits. Each player always has exactly 15 cards.</p></form></dialog>
+<script id="preset-decks">
+globalThis.PRESET_PROFILES=[
+  {
+    "name": "Me",
+    "topic": "Relationships · intelligence · tech",
+    "cards": [
+      {
+        "question": "What would make a conversation worth staying up for?",
+        "answer": "Honest feelings, a clever question, and one big what-if.",
+        "generated": true
+      },
+      {
+        "question": "What would I want a partner to understand about my curiosity?",
+        "answer": "Asking questions is one of my ways of showing I care.",
+        "generated": true
+      },
+      {
+        "question": "What would be a fun date with a little brainpower involved?",
+        "answer": "An escape room followed by a conversation about how we solved it.",
+        "generated": true
+      },
+      {
+        "question": "What would I choose to build trust in a relationship?",
+        "answer": "Clear communication and the freedom to ask difficult questions.",
+        "generated": true
+      },
+      {
+        "question": "What would I put away during an important conversation?",
+        "answer": "My phone, even if a new gadget announcement just dropped.",
+        "generated": true
+      },
+      {
+        "question": "What kind of puzzle would pull me in?",
+        "answer": "One where changing a single assumption changes the whole answer.",
+        "generated": true
+      },
+      {
+        "question": "What would make someone seem intelligent to me?",
+        "answer": "Explaining a complex idea clearly and being willing to revise it.",
+        "generated": true
+      },
+      {
+        "question": "What would I do if new evidence challenged my opinion?",
+        "answer": "Check the evidence and work out which part of my thinking needs an update.",
+        "generated": true
+      },
+      {
+        "question": "What would I rather collect than easy answers?",
+        "answer": "Better questions that open up a different way to think.",
+        "generated": true
+      },
+      {
+        "question": "What would I ask a person who could teach me anything?",
+        "answer": "How do you decide what information is worth trusting?",
+        "generated": true
+      },
+      {
+        "question": "What would my dream app help people do?",
+        "answer": "Understand each other and turn good ideas into something useful.",
+        "generated": true
+      },
+      {
+        "question": "What would I try first with a new AI assistant?",
+        "answer": "Give it a tricky problem, then question how it reached its answer.",
+        "generated": true
+      },
+      {
+        "question": "What would make a new piece of tech exciting to me?",
+        "answer": "It solves an actual problem in a surprisingly clever way.",
+        "generated": true
+      },
+      {
+        "question": "What would I automate to get more time with people?",
+        "answer": "The repetitive little tasks that keep interrupting the day.",
+        "generated": true
+      },
+      {
+        "question": "What would I debate over dinner?",
+        "answer": "Whether technology brings us closer or just keeps us connected.",
+        "generated": true
+      }
+    ]
+  },
+  {
+    "name": "Sarah",
+    "topic": "Animals · the South",
+    "cards": [
+      {
+        "question": "What would make a road trip stop irresistible?",
+        "answer": "A place to meet animals and a friendly little town to explore.",
+        "generated": true
+      },
+      {
+        "question": "What would I notice first at a gathering with pets?",
+        "answer": "The animal quietly checking out every person in the room.",
+        "generated": true
+      },
+      {
+        "question": "What would my dream volunteer afternoon involve?",
+        "answer": "Helping care for animals and seeing a shy one become more comfortable.",
+        "generated": true
+      },
+      {
+        "question": "What would I add to a backyard if space were unlimited?",
+        "answer": "A safe, shady place for animals to relax and explore.",
+        "generated": true
+      },
+      {
+        "question": "What would I ask someone who works with animals?",
+        "answer": "How do you learn what each animal needs without words?",
+        "generated": true
+      },
+      {
+        "question": "What would make an animal story stay with me?",
+        "answer": "A patient person earning the trust of a frightened creature.",
+        "generated": true
+      },
+      {
+        "question": "What would I bring to a pet-friendly picnic?",
+        "answer": "Water, a shady spot, and something for the four-legged guests.",
+        "generated": true
+      },
+      {
+        "question": "What would I look for in a small Southern town?",
+        "answer": "A welcoming main street and people happy to share a local story.",
+        "generated": true
+      },
+      {
+        "question": "What would make a front porch the perfect place to spend an evening?",
+        "answer": "Good company, a cool drink, and enough time to stay awhile.",
+        "generated": true
+      },
+      {
+        "question": "What would I want to learn at a Southern family cookout?",
+        "answer": "The story behind the recipe everyone insists is the best.",
+        "generated": true
+      },
+      {
+        "question": "What would I explore on a trip through the South?",
+        "answer": "The local food, regional traditions, and places that feel full of history.",
+        "generated": true
+      },
+      {
+        "question": "What would I photograph on a quiet Southern afternoon?",
+        "answer": "A shady porch, a sleepy dog, and a street with a story.",
+        "generated": true
+      },
+      {
+        "question": "What would I ask a longtime local over lunch?",
+        "answer": "Which place around here would you take someone you really wanted to welcome?",
+        "generated": true
+      },
+      {
+        "question": "What would make a country fair worth visiting?",
+        "answer": "The animal exhibits, homemade food, and local crafts.",
+        "generated": true
+      },
+      {
+        "question": "What would bring my interests together in one weekend?",
+        "answer": "An animal sanctuary visit followed by exploring a town in the South.",
+        "generated": true
+      }
+    ]
+  },
+  {
+    "name": "Jeter",
+    "topic": "Comics · art",
+    "cards": [
+      {
+        "question": "What would I notice first in a new comic?",
+        "answer": "The artwork and the way the panels guide my eye.",
+        "generated": true
+      },
+      {
+        "question": "What would make a superhero memorable to me?",
+        "answer": "A striking design and a flaw that makes the character feel human.",
+        "generated": true
+      },
+      {
+        "question": "What would I want on a wall in my ideal room?",
+        "answer": "Original art with enough detail to discover something new every day.",
+        "generated": true
+      },
+      {
+        "question": "What would my imaginary superpower look like?",
+        "answer": "Whatever I draw could step off the page.",
+        "generated": true
+      },
+      {
+        "question": "What would I ask a comic-book artist?",
+        "answer": "How do you make a still image feel like it is moving?",
+        "generated": true
+      },
+      {
+        "question": "What would make me reread a scene?",
+        "answer": "A tiny visual clue that changes the meaning once I know the ending.",
+        "generated": true
+      },
+      {
+        "question": "What would I spend an afternoon creating?",
+        "answer": "A character sheet full of sketches, expressions, and costume ideas.",
+        "generated": true
+      },
+      {
+        "question": "What would I look for at a convention?",
+        "answer": "Artist tables, independent comics, and prints with a distinctive style.",
+        "generated": true
+      },
+      {
+        "question": "What would be the hardest part of inventing a hero?",
+        "answer": "Designing a symbol that tells you who they are before they say a word.",
+        "generated": true
+      },
+      {
+        "question": "What would I choose for a creative challenge?",
+        "answer": "Tell a complete story in six panels with no dialogue.",
+        "generated": true
+      },
+      {
+        "question": "What would I want a villain’s design to reveal?",
+        "answer": "A hint of their motivation hidden in the shape, color, or costume.",
+        "generated": true
+      },
+      {
+        "question": "What would I bring to a long wait?",
+        "answer": "A sketchbook and a pen, so the time becomes drawing time.",
+        "generated": true
+      },
+      {
+        "question": "What would make a museum visit exciting?",
+        "answer": "Seeing the brushwork and small details that disappear in reproductions.",
+        "generated": true
+      },
+      {
+        "question": "What would I compare between a comic and its screen adaptation?",
+        "answer": "How the visual style, pacing, and character expressions translate.",
+        "generated": true
+      },
+      {
+        "question": "What would I ask people to notice in something I made?",
+        "answer": "The little artistic choices that help tell the story.",
+        "generated": true
+      }
+    ]
+  },
+  {
+    "name": "Eric",
+    "topic": "Hiking · outdoor activities",
+    "cards": [
+      {
+        "question": "What would make an early alarm worth it?",
+        "answer": "Reaching a trail overlook in time for sunrise.",
+        "generated": true
+      },
+      {
+        "question": "What would I check before choosing a hike?",
+        "answer": "The route, conditions, distance, and how much daylight we have.",
+        "generated": true
+      },
+      {
+        "question": "What would my ideal weekend plan start with?",
+        "answer": "A trail map and a place to get outside.",
+        "generated": true
+      },
+      {
+        "question": "What would I pick as a reward after a climb?",
+        "answer": "A quiet view and a chance to enjoy how far we came.",
+        "generated": true
+      },
+      {
+        "question": "What would I pack even for a short walk in the hills?",
+        "answer": "Water, a snack, and a plan for finding my way back.",
+        "generated": true
+      },
+      {
+        "question": "What would make me slow down on a trail?",
+        "answer": "An interesting view, a bird call, or someone who needs a break.",
+        "generated": true
+      },
+      {
+        "question": "What would I want in a good hiking partner?",
+        "answer": "Someone who enjoys the journey and looks out for the group.",
+        "generated": true
+      },
+      {
+        "question": "What would I prefer for a catch-up with a friend?",
+        "answer": "A walk outside where the conversation can wander with us.",
+        "generated": true
+      },
+      {
+        "question": "What would make a campsite feel special?",
+        "answer": "A peaceful setting and a sky full of stars.",
+        "generated": true
+      },
+      {
+        "question": "What would I want to learn from an outdoor expert?",
+        "answer": "How to read the landscape and make thoughtful decisions out there.",
+        "generated": true
+      },
+      {
+        "question": "What would I photograph after a long day outside?",
+        "answer": "The view that made the effort feel worthwhile.",
+        "generated": true
+      },
+      {
+        "question": "What would I choose between a crowded attraction and a quiet path?",
+        "answer": "The quiet path, especially if there is something new around the bend.",
+        "generated": true
+      },
+      {
+        "question": "What would I do when the weather changed our outdoor plans?",
+        "answer": "Choose a sensible alternative and save the bigger adventure for another day.",
+        "generated": true
+      },
+      {
+        "question": "What would I want to leave behind after an outdoor trip?",
+        "answer": "As little trace of our visit as possible.",
+        "generated": true
+      },
+      {
+        "question": "What would my dream day outdoors include?",
+        "answer": "A good hike, fresh air, and time to sit and take it all in.",
+        "generated": true
+      }
+    ]
+  }
+];
+</script>
+<script id="game-engine">
+class IdentityGame {
+  constructor(names,laps,diceCount){
+    if(!Array.isArray(names)||names.length<3||names.length>4)throw new Error('Choose 3 or 4 players.');
+    const clean=names.map(n=>String(n).trim());
+    if(clean.some(n=>!n||n.length>24))throw new Error('Give every player a name of 1–24 characters.');
+    if(new Set(clean.map(n=>n.toLowerCase())).size!==clean.length)throw new Error('Use a different name for each player.');
+    if(!Number.isInteger(laps)||laps<1||laps>5)throw new Error('Choose 1–5 laps.');
+    if(![1,2].includes(diceCount))throw new Error('Choose one or two dice.');
+    this.players=clean.map((name,id)=>({id,name,position:0,correct:0,guesses:0}));this.laps=laps;this.diceCount=diceCount;this.target=laps*24;this.decks=clean.map(()=>null);this.current=0;this.phase='draft';this.used=new Set();this.dice=[];this.card=null;this.result=null;this.winner=null;
+  }
+  submitDeck(playerId,cards){
+    if(this.phase!=='draft'||!Number.isInteger(playerId)||!this.players[playerId]||this.decks[playerId])throw new Error('This deck cannot be changed now.');
+    if(!Array.isArray(cards)||cards.length!==15)throw new Error('Every player must write exactly 15 questions.');
+    const clean=cards.map((c,index)=>{const question=String(c.question||'').trim(),answer=String(c.answer||'').trim();if(!question||!answer||question.length>180||answer.length>240)throw new Error('Complete question '+(index+1)+' and its answer.');return{id:playerId*15+index,author:playerId,question,answer,generated:c.generated!==false};});
+    this.decks[playerId]=clean;if(this.decks.every(Boolean))this.phase='ready';
+  }
+  start(){if(this.phase!=='ready')throw new Error('Every player needs 15 questions first.');this.phase='roll';}
+  roll(randomInt){
+    if(this.phase!=='roll')throw new Error('Finish this turn before rolling again.');
+    const dice=Array.from({length:this.diceCount},()=>randomInt(6)+1);if(dice.some(d=>!Number.isInteger(d)||d<1||d>6))throw new Error('Invalid dice roll.');
+    let pool=this.decks.flat().filter(c=>c.author!==this.current&&!this.used.has(c.id));const reshuffled=pool.length===0;
+    if(reshuffled)pool=this.decks.flat().filter(c=>c.author!==this.current);
+    const card=pool[randomInt(pool.length)];if(!card)throw new Error('No question is available.');
+    if(reshuffled)this.used.clear();this.used.add(card.id);this.card=card;this.dice=dice;const player=this.players[this.current],before=player.position;
+    player.position=Math.min(this.target,player.position+dice.reduce((a,b)=>a+b,0));this.phase='question';this.result=null;this.reshuffled=reshuffled;return{dice,total:dice.reduce((a,b)=>a+b,0),moved:player.position-before,reshuffled};
+  }
+  guess(authorId){
+    if(this.phase!=='question')throw new Error('Roll and read a question first.');
+    if(!Number.isInteger(authorId)||!this.players[authorId]||authorId===this.current)throw new Error('Choose another player.');
+    const player=this.players[this.current],correct=authorId===this.card.author,before=player.position;player.guesses++;if(correct)player.correct++;else player.position=Math.max(0,player.position-2);
+    if(player.position>=this.target)this.winner=this.current;this.result={correct,author:this.card.author,penalty:before-player.position};this.phase='result';return this.result;
+  }
+  next(){if(this.phase!=='result'||this.winner!==null)throw new Error('This turn is not ready to advance.');this.current=(this.current+1)%this.players.length;this.phase='roll';this.card=null;this.result=null;}
+}
+globalThis.IdentityGame=IdentityGame;
+</script>
+<script>
+const COLORS=['#baa3f7','#ffa1b6','#7cd8d1','#dbfa79','#ffbb7e','#98b7f8','#f391d6','#b8dfad'];
+const $=id=>document.getElementById(id);
+const escapeHTML=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let names=PRESET_PROFILES.map(p=>p.name), laps=2;
+const customDecks=PRESET_PROFILES.map(p=>p.cards.map(c=>({...c})));
+let editorPlayer=0,editorIndex=0;
+const coords=[];for(let c=1;c<=7;c++)coords.push([1,c]);for(let r=2;r<=7;r++)coords.push([r,7]);for(let c=6;c>=1;c--)coords.push([7,c]);for(let r=6;r>=2;r--)coords.push([r,1]);
+function drawBoard(players=[],active=-1){document.querySelectorAll('.tile').forEach(t=>t.remove());coords.forEach(([r,c],i)=>{let tile=document.createElement('div');tile.className='tile'+(i===0?' start':'');tile.style.gridRow=r;tile.style.gridColumn=c;tile.dataset.space=i;const onTile=players.filter(p=>p.position%24===i);if(onTile.length)tile.classList.add('occupied');if(players[active]?.position%24===i)tile.classList.add('active-space');tile.setAttribute('aria-label',(i===0?'Start':'Space '+i)+(onTile.length?': '+onTile.map(p=>p.name).join(', '):''));tile.innerHTML='<span class="tile-number">'+(i||'')+'</span><span class="tile-symbol" aria-hidden="true">'+(i===0?'START':'?')+'</span><span class="tokens">'+onTile.map(p=>'<span class="token" style="--token:'+COLORS[p.id]+'" title="'+escapeHTML(p.name)+'">'+(p.id+1)+'</span>').join('')+'</span>';$('board').appendChild(tile)});}
+function renderNames(){const list=$('name-list');list.innerHTML=names.map((n,i)=>'<div class="name-row" style="padding:7px 0"><span class="player-dot" style="--token:'+COLORS[i]+'" aria-hidden="true">'+(i+1)+'</span><div><strong>'+escapeHTML(n)+'</strong><div style="font-size:12px;color:var(--muted)">'+escapeHTML(PRESET_PROFILES[i].topic)+'</div></div><span style="margin-left:auto;font-size:12px;color:var(--muted);white-space:nowrap">15 cards</span></div>').join('');}
+$('lap-less').onclick=()=>{laps=Math.max(1,laps-1);$('laps').value=laps};$('lap-more').onclick=()=>{laps=Math.min(5,laps+1);$('laps').value=laps};
+$('rules-button').onclick=()=>$('rules-dialog').showModal();$('rules-done').onclick=()=>$('rules-dialog').close();document.querySelector('#rules-dialog .close').onclick=()=>$('rules-dialog').close();
+drawBoard();renderNames();
+let game=null,busy=false;
+function announce(message){$('live-status').textContent=message;}
+function focusPanel(){const el=$('panel').querySelector('h2');if(el){el.tabIndex=-1;el.focus({preventScroll:true})}}
+function setPanel(html){$('panel').innerHTML=html;focusPanel()}
+function token(player){return '<span class="player-dot" style="--token:'+COLORS[player.id]+'" aria-hidden="true">'+(player.id+1)+'</span>'}
+function secureInt(max){const buf=new Uint32Array(1),limit=Math.floor(4294967296/max)*max;do{crypto.getRandomValues(buf)}while(buf[0]>=limit);return buf[0]%max}
+$('setup-form').onsubmit=event=>{event.preventDefault();try{game=new IdentityGame(names,laps,Number($('dice-count').value));customDecks.forEach((deck,i)=>game.submitDeck(i,deck));game.start();}catch(error){$('setup-error').textContent=error.message;$('setup-error').classList.remove('hidden');return;}$('new-game').classList.remove('hidden');$('rule-strip').classList.add('hidden');$('table-pill').textContent='4 players · '+laps+' '+(laps===1?'lap':'laps');renderGame();};
+function loadEditor(){const card=customDecks[editorPlayer][editorIndex];$('editor-person').value=editorPlayer;$('editor-topic').textContent=PRESET_PROFILES[editorPlayer].topic;$('editor-number').textContent='Question '+(editorIndex+1)+' of 15';$('editor-question').value=card.question;$('editor-answer').value=card.answer;$('editor-prev').disabled=editorIndex===0;$('editor-next').disabled=editorIndex===14;$('editor-error').classList.add('hidden');$('editor-question').removeAttribute('aria-invalid');$('editor-answer').removeAttribute('aria-invalid');}
+function saveEditor(){const question=$('editor-question').value.trim(),answer=$('editor-answer').value.trim();if(!question||!answer){$('editor-error').textContent='Keep a question and an answer on every card.';$('editor-error').classList.remove('hidden');$('editor-question').setAttribute('aria-invalid',String(!question));$('editor-answer').setAttribute('aria-invalid',String(!answer));(!question?$('editor-question'):$('editor-answer')).focus();return false;}const old=customDecks[editorPlayer][editorIndex];customDecks[editorPlayer][editorIndex]={question,answer,generated:old.generated&&question===old.question&&answer===old.answer};return true;}
+$('edit-cards').onclick=()=>{$('editor-person').innerHTML=names.map((n,i)=>'<option value="'+i+'">'+escapeHTML(n)+'</option>').join('');editorPlayer=0;editorIndex=0;loadEditor();$('editor-dialog').showModal();};
+$('editor-person').onchange=()=>{const next=Number($('editor-person').value);if(!saveEditor()){$('editor-person').value=editorPlayer;return}editorPlayer=next;editorIndex=0;loadEditor();};
+$('editor-prev').onclick=()=>{if(editorIndex>0&&saveEditor()){editorIndex--;loadEditor()}};
+$('editor-next').onclick=()=>{if(editorIndex<14&&saveEditor()){editorIndex++;loadEditor()}};
+$('editor-form').onsubmit=e=>{e.preventDefault();if(saveEditor())$('editor-dialog').close()};
+$('editor-close').onclick=()=>{if(saveEditor())$('editor-dialog').close()};
+$('editor-dialog').addEventListener('cancel',e=>{if(!saveEditor())e.preventDefault()});
+const pipSpots={1:[4],2:[0,8],3:[0,4,8],4:[0,2,6,8],5:[0,2,4,6,8],6:[0,2,3,5,6,8]};
+function diceHTML(values,rolling=false){return '<div class="dice-area" aria-label="'+(rolling?'Rolling dice':'Dice: '+values.join(' and '))+'">'+values.map(d=>'<div class="die '+(rolling?'rolling':'')+'" aria-hidden="true">'+Array.from({length:9},(_,i)=>'<span'+(pipSpots[d].includes(i)?' class="pip"':'')+'></span>').join('')+'</div>').join('')+'</div>';}
+function renderScores(){const el=$('leaderboard');el.classList.remove('hidden');el.innerHTML='<h3>Around the table</h3>'+game.players.map(p=>'<div class="score-row '+(p.id===game.current?'current':'')+'">'+token(p)+'<span class="score-name">'+escapeHTML(p.name)+'</span><span class="score-progress">'+Math.min(game.laps,Math.floor(p.position/24))+'/'+game.laps+' laps · '+(p.position%24)+'/24</span><div class="score-bar" style="--token:'+COLORS[p.id]+'"><span style="width:'+(p.position/game.target*100)+'%"></span></div></div>').join('');}
+function turnHeader(){const p=game.players[game.current];return '<div class="turn-label">'+token(p)+'<div><p class="eyebrow">Your turn</p><h2>'+escapeHTML(p.name)+'</h2></div></div>';}
+function renderGame(){$('play-layout').classList.add('game-running');$('stage-label').textContent='Around the board';$('stage-title').textContent=game.winner!==null?'A familiar face. A new champion.':'Who’s behind the answer?';$('lap-caption').textContent=game.laps+' '+(game.laps===1?'lap':'laps')+' to win';$('center-badge').textContent=game.players.length*15+' questions · '+game.players.length+' people';drawBoard(game.players,game.current);renderScores();if(game.winner!==null){showWinner();return}if(game.phase==='roll'){setPanel(turnHeader()+'<p class="muted">Roll, move, and see whose story you land on.</p>'+diceHTML(game.dice.length?game.dice:Array(game.diceCount).fill(1))+'<button class="primary" id="roll-button">Roll '+(game.diceCount===1?'the die':'the dice')+'</button><p class="small-note">Correct: stay. Wrong: back 2.</p>');$('roll-button').onclick=rollTurn;announce(game.players[game.current].name+'’s turn. Roll the '+(game.diceCount===1?'die':'dice')+'.');}else if(game.phase==='question'){const c=game.card;setPanel(turnHeader()+'<div class="card-label">You rolled '+game.dice.reduce((a,b)=>a+b,0)+' · '+(game.players[game.current].position===game.target?'Finish line':'Space '+(game.players[game.current].position%24))+'</div><div class="question">'+escapeHTML(c.question)+'</div><div class="answer">'+escapeHTML(c.answer)+'</div><p class="field-label">Who said that?</p><div class="guess-grid">'+game.players.filter(p=>p.id!==game.current).map(p=>'<button class="guess-button" data-guess="'+p.id+'">'+token(p)+'<span>'+escapeHTML(p.name)+'</span></button>').join('')+'</div><p class="status-line">'+(game.reshuffled?'The deck was reshuffled. A familiar story may return.':(c.generated?'Generated example. Match it to the person’s interests.':'Personalized answer. Who would say it?'))+'</p>');document.querySelectorAll('[data-guess]').forEach(el=>el.onclick=()=>submitGuess(Number(el.dataset.guess)));announce('Rolled '+game.dice.join(' and ')+'. '+c.question+' Answer: '+c.answer+'. Guess who would say it.');}else if(game.phase==='result')showResult();}
+async function rollTurn(){if(busy||!game||game.phase!=='roll')return;busy=true;const button=$('roll-button');if(button){button.disabled=true;button.textContent='Rolling…'}document.querySelectorAll('.die').forEach(d=>d.classList.add('rolling'));await new Promise(r=>setTimeout(r,matchMedia('(prefers-reduced-motion: reduce)').matches?0:650));try{const result=game.roll(secureInt);renderGame();return result;}finally{busy=false;}}
+function submitGuess(id){const result=game.guess(id);renderGame();return result;}
+function showResult(){const result=game.result,p=game.players[game.current],author=game.players[result.author],next=game.players[(game.current+1)%game.players.length];setPanel(turnHeader()+'<div class="result-banner '+(result.correct?'':'wrong')+'">'+(result.correct?'You know them well.':'A little plot twist.')+'</div><p>This card belongs to <strong>'+escapeHTML(author.name)+'</strong>.</p><div class="answer">'+escapeHTML(game.card.answer)+'</div><p class="muted">'+(result.correct?'Correct! Keep your spot on space '+(p.position%24)+'.':result.penalty===2?'Back 2 spaces. You’re now on space '+(p.position%24)+'.':'Back to Start. Your piece cannot move behind the starting line.')+'</p><button class="primary" id="next-turn">Next: '+escapeHTML(next.name)+'</button>');$('next-turn').onclick=()=>{game.next();renderGame()};announce((result.correct?'Correct. Keep your spot.':'Incorrect. Move back '+result.penalty+' spaces.')+' The answer was from '+author.name+'.');}
+function showWinner(){const p=game.players[game.winner];setPanel('<p class="eyebrow">We have a winner</p><div class="winner-medallion" aria-hidden="true">✷</div><h2 class="winner-name">'+escapeHTML(p.name)+' takes the table.</h2><p class="muted">'+game.laps+' '+(game.laps===1?'lap':'laps')+' complete. '+p.correct+' correct '+(p.correct===1?'guess':'guesses')+' out of '+p.guesses+'.</p><p>Your final answer was right: <strong>'+escapeHTML(game.players[game.card.author].name)+'</strong> is the match.</p><div class="actions-stack"><button class="primary" id="rematch">Play again with these questions</button><button class="secondary" id="fresh-game">Back to setup</button></div>');$('rematch').onclick=()=>{const next=new IdentityGame(game.players.map(p=>p.name),game.laps,game.diceCount);game.decks.forEach((deck,i)=>next.submitDeck(i,deck));game=next;game.start();renderGame()};$('fresh-game').onclick=()=>location.reload();announce(p.name+' wins after '+game.laps+' laps!');}
+$('new-game').onclick=()=>$('reset-dialog').showModal();$('reset-cancel').onclick=()=>$('reset-dialog').close();$('reset-confirm').onclick=()=>location.reload();
+function visibleGameStatus(){if(!game)return{stage:'setup',maximumPlayers:4,questionsPerPlayer:15};const state={stage:game.phase,players:game.players.map(({id,name,position,correct,guesses})=>({id,name,position,correct,guesses})),laps:game.laps,diceCount:game.diceCount,currentPlayer:game.players[game.current].name,winner:game.winner===null?null:game.players[game.winner].name};if(game.phase==='question')state.question={question:game.card.question,answer:game.card.answer};if(game.phase==='result')state.result={correct:game.result.correct,author:game.players[game.result.author].name};return state;}
+if(document.modelContext?.registerTool){const lifecycle=new AbortController();const register=tool=>{try{Promise.resolve(document.modelContext.registerTool(tool,{signal:lifecycle.signal})).catch(()=>{})}catch{}};register({name:'read_game_status',title:'Read game status',description:'Read visible game progress and the current question. Never returns an unrevealed answer author.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true,untrustedContentHint:true},execute:()=>visibleGameStatus()});register({name:'roll_game_dice',title:'Roll game dice',description:'Roll the dice for the current player and reveal their anonymous question. Only available when the turn is waiting for a roll.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:true},execute:async()=>{if(!game||game.phase!=='roll'||busy)throw new Error('The game is not waiting for a roll.');await rollTurn();return visibleGameStatus();}});register({name:'submit_identity_guess',title:'Submit an identity guess',description:'Commit one guess for the current question, reveal its author, and apply movement or victory.',inputSchema:{type:'object',properties:{playerId:{type:'integer',minimum:0,maximum:3}},required:['playerId'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:true},execute:input=>{if(!game||!input||!Number.isInteger(input.playerId))throw new Error('A valid playerId is required.');submitGuess(input.playerId);return visibleGameStatus();}});window.addEventListener('pagehide',()=>lifecycle.abort(),{once:true});}
+</script>
+</body></html>
